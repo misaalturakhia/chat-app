@@ -5,8 +5,12 @@ var mongooseUtils = require('./mongoose.utils');
 var Schema = mongoose.Schema;
 
 var ChatSchema = new Schema({
-    // id of the user who is using our app
+    // identifier that allows bunching of chat documents by 
     user_id : String,
+    // identifier that allows bunching of chat document by file upload id --> conversation id
+    conversation_id : String, // a uuid
+    // a conversation name
+    conversation_name : String,
     // person who sent the chat
     messager : {
         type : String,

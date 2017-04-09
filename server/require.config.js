@@ -16,7 +16,7 @@ var config = {
     'ctrl.chats'            : 'controllers/chats.ctrl',
 
 	// Utils
-	'utils.response'	    : 'bp-utils/response.utils',
+	'utils.response'	    : 'utils/response.utils',
 };
 
 module.exports = config;
