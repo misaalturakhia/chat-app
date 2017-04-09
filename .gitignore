@@ -48,3 +48,4 @@ buzzapp.min.js
 client/build/**/*
 client/commons/css/main.css
 .vscode
+*.txt
