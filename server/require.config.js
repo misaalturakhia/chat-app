@@ -8,6 +8,7 @@ var config = {
     
     // models
     'model.chat'            : 'models/chat.model',
+    'model.user'            : 'models/user.model',
 
     // apis
     'api.chats'             : 'api/chats.api',

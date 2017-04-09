@@ -12,11 +12,10 @@ util.inherits(TextConverter, Transform);
  * A stream that reads the whatsapp chat text file and converts to objects
  * @param {*} opts 
  */
-function TextConverter(opts, userId){
+function TextConverter(opts){
     if (!(this instanceof TextConverter)) {
         return new TextConverter(opts);
     }
-    this.userId = userId;
     this.temp = ''; // a temporary variable that holds an unfinished line
     opts = opts || {}; // todo : pass in buffer size
     opts.objectMode = true;
@@ -86,8 +85,6 @@ TextConverter.prototype.toObject = function (chat){
     chatObj.timestamp = date;
     // use the chatData string to extract the messager and the message and inject it into the chatObj
     _this.appendChatData(chatObj, chatData);
-    // inject the userId --> identifier for the user logged into the app
-    chatData.user_id = _this.userId;
     return chatObj;
 };
 

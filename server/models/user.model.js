@@ -9,6 +9,10 @@ var ChatSchema = new Schema({
     user_id : String,
 
     name : String,
+    // v2
+    email : String,
+    // v2
+    password : String,
     
     conversations : [{
         _id : String, // conversation id
@@ -16,4 +20,4 @@ var ChatSchema = new Schema({
     }]
 });
 
-module.exports = mongoose.model('chat', ChatSchema);
+module.exports = mongoose.model('user', ChatSchema);
