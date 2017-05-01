@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-var mongooseUtils = require('./mongoose.utils');
-
 var Schema = mongoose.Schema;
 
 var ChatSchema = new Schema({

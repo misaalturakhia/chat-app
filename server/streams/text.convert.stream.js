@@ -78,7 +78,8 @@ TextConverter.prototype.toObject = function (chat){
         return null;
     }
     var chatDate = chat.substring(0, separatorIndex);
-    var chatData = chat.substring(separatorIndex + separator.length, chat.length - 1);
+    var chatData = chat.substring(separatorIndex + separator.length, chat.length);
+    chatObj.date_str = chatDate;
     // parse date from the passed chat date string
     var date = _this.fetchDate(chatDate);
     // inject the parsed data into the final chat obj
@@ -96,7 +97,7 @@ TextConverter.prototype.fetchDate = function (dateStr){
     }
     dateStr = dateStr.trim();
     // parse string into date object using momentjs and passing the expected string date format
-    var date = Moment(dateStr, 'DD/MM/YYYY, HH:mm');
+    var date = Moment(dateStr, 'DD/MM/YYYY, HH:mm').toDate();
     return date;
 };
 
@@ -109,7 +110,7 @@ TextConverter.prototype.appendChatData = function (chatObj, chatDataStr){
         // the person who wrote the message
         chatObj.messager = chatDataStr.substring(0, separatorIndex);
         // the message that was passed
-        chatObj.message = chatDataStr.substring(separatorIndex + separator.length, chatDataStr.length - 1);
+        chatObj.message = chatDataStr.substring(separatorIndex + separator.length, chatDataStr.length);
     }
     return chatObj;
 };

@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-var mongooseUtils = require('./mongoose.utils');
-
 var Schema = mongoose.Schema;
 
 var ChatSchema = new Schema({
@@ -20,7 +18,28 @@ var ChatSchema = new Schema({
         type : String
     },
     // timestamp of the chat
-    timestamp : Date
+    timestamp : Date,
+
+    date_str : String,
+
+    analysis : {
+        sentiment_score : Number,
+        word_count : Number, // in words
+        words : [],
+        emoticons : [],
+        entities : { // mentioned entities
+            people : [ String ],
+            locations : [ String ],
+            organisations : [ String ]
+        },
+        date : {
+            day_of_week : {
+                type : String,
+                enum : ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
+            },
+            hour_of_day : Number,
+        }
+    }
 });
 
 module.exports = mongoose.model('chat', ChatSchema);

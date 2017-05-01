@@ -38,6 +38,7 @@ MongoStorage.prototype._handleFile = function (req, file, cb){
 MongoStorage.prototype._removeFile = function (req, file, cb) {
     var userId = req.user._id;
     var conversationId = req.params.cid;
+    // remove all chats withe the input conversationId and then remove the conversation from the User document
     Chat.remove({ conversation_id : conversationId }).exec(function (err){
         if(err){
             return cb(err);
