@@ -2,8 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+var Names = require('./collection.names');
+
 var ChatSchema = new Schema({
-    // identifier that allows bunching of chat documents by 
+    // identifier that allows bunching of chat documents by session to begin with --> lazy user registration
     user_id : String,
     // identifier that allows bunching of chat document by file upload id --> conversation id
     conversation_id : String, // a uuid
@@ -42,4 +44,4 @@ var ChatSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('chat', ChatSchema);
+module.exports = mongoose.model(Names.chat, ChatSchema);

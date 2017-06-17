@@ -1,5 +1,5 @@
 
-var requireConfig = require('./require-config');
+var requireConfig = require('./require.config');
 
 global.appRequire = function(alias){    
     return require(__dirname + '/' +requireConfig[alias.toLowerCase()]);

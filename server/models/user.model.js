@@ -2,9 +2,17 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var ChatSchema = new Schema({
+var Names = require('./collection.names');
+
+var UserSchema = new Schema({
+    
+    is_active : {
+        type : Boolean,
+        default : true
+    },
+
     // identifier that allows bunching of chat documents by 
-    user_id : String,
+    _id : String,
 
     name : String,
     // v2
@@ -18,4 +26,4 @@ var ChatSchema = new Schema({
     }]
 });
 
-module.exports = mongoose.model('user', ChatSchema);
+module.exports = mongoose.model(Names.user, UserSchema);
