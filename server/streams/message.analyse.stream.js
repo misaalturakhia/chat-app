@@ -20,6 +20,10 @@ MessageAnalyser.prototype._write = function (chat, encoding, cb){
     chat.analysis.sentiment_score = Sentiment(message).score;
     // words
     var words = chat.message.trim().split(' ');
+    // filter words with no text
+    words = words.filter(function (word){
+        return word.length > 0;
+    });
     chat.analysis.words = words;
     chat.analysis.word_count = words.length;
     // analyse date
